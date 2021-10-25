@@ -24,26 +24,24 @@ Write a function that returns the Levenshtein distance between two strings given
 
 */
 function levenshtein(stringA, stringB) {
-  let count = 0
-  let transformedWord = ''
-  console.log(`string A: ${stringA}`)
-  console.log(`string B: ${stringB}`)
+  let count = 0;
+  let transformedWord = "";
+  console.log(`string A: ${stringA}`);
+  console.log(`string B: ${stringB}`);
 
   for (let index = 0; index < Number(stringB.length); index++) {
-    
     // console.log(`${stringB.charAt(index)}`);
 
-    if(stringB.charAt(index) === stringA.charAt(index)) {
-        transformedWord.concat(stringB.substr(index))
-    }
-    else{
-        count += 1;
-        stringA.pop()
+    if (stringB.charAt(index) === stringA.charAt(index)) {
+      transformedWord.concat(stringB.charAt(index));
+      console.log(transformedWord);
+    } else {
+      count += 1;
     }
   }
-  console.log(transformedWord)
-  console.log(typeof(transformedWord))
-  console.log(count)
+  console.log(transformedWord);
+  console.log(typeof transformedWord);
+  console.log(count);
   return count;
 }
 
@@ -52,6 +50,6 @@ function levenshtein(stringA, stringB) {
 
 // levenshtein("stop", "tops");
 
-// levenshtein("rosettacode", "raisethysword");
+levenshtein("rosettacode", "raisethysword");
 // levenshtein("mississippi", "swiss miss");
-levenshtein("tier", "tor");
+// levenshtein("tier", "tor");
