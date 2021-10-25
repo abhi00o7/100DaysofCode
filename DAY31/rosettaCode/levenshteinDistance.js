@@ -22,6 +22,9 @@ The distance between two strings is same as that when both strings are reversed.
 
 Write a function that returns the Levenshtein distance between two strings given as parameters.
 
+source:
+ https://medium.com/@ethannam/understanding-the-levenshtein-distance-equation-for-beginners-c4285a5604f0
+
 */
 function levenshtein(stringA, stringB) {
   let count = 0;
@@ -33,6 +36,7 @@ function levenshtein(stringA, stringB) {
     // console.log(`${stringB.charAt(index)}`);
 
     if (stringB.charAt(index) === stringA.charAt(index)) {
+      console.log(stringB.charAt(index));
       transformedWord.concat(stringB.charAt(index));
       console.log(transformedWord);
     } else {
