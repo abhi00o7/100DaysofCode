@@ -21,4 +21,28 @@ The Levenshtein distance between "rosettacode", "raisethysword" is 8.
 The distance between two strings is same as that when both strings are reversed.
 
 Write a function that returns the Levenshtein distance between two strings given as parameters.
- */
+
+*/
+function levenshtein(stringA, stringB) {
+  let count = 0
+  let transformedWord = []
+  let stringAArray = stringA.split("")
+  console.log(stringAArray)
+  let stringBArray = stringB.split("")
+  console.log(stringBArray)
+
+  for (let index = 0; index < Number(stringB.length); index++) {
+    
+    console.log(`${stringBArray[index]}`);
+
+    if(stringB.charAt(index) === stringA.charAt(index)) {
+        transformedWord.push(stringB.substr(index))
+    }
+    else{
+        transformedWord.push(stringB.substr(index));
+    }
+  }
+  return transformedWord.join('');
+}
+
+levenshtein("mist", "dist")
