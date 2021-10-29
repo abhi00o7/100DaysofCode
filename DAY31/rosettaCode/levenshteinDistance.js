@@ -26,12 +26,13 @@ source:
  https://medium.com/@ethannam/understanding-the-levenshtein-distance-equation-for-beginners-c4285a5604f0
 
 */
+/*
 function levenshtein(stringA, stringB) {
   let count = 0;
   let transformedWord = "";
   console.log(`string A: ${stringA}`);
   console.log(`string B: ${stringB}`);
-
+  
   for (let index = 0; index < Number(stringB.length); index++) {
     // console.log(`${stringB.charAt(index)}`);
 
@@ -49,6 +50,37 @@ function levenshtein(stringA, stringB) {
   return count;
 }
 
+*/
+function levenshtein(str1, str2) {
+  var len1 = str1.length;
+  var len2 = str2.length;
+  var matrix = [];
+  // fill the first row of the matrix
+  for (var i = 0; i <= len1; i++) {
+    matrix[i] = [i];
+  }
+  // fill the first column of the matrix
+  for (var j = 0; j <= len2; j++) {
+    matrix[0][j] = j;
+  }
+  // fill the rest of the matrix
+  for (var i = 1; i <= len1; i++) {
+    for (var j = 1; j <= len2; j++) {
+      if (str1.charAt(i - 1) == str2.charAt(j - 1)) {
+        matrix[i][j] = matrix[i - 1][j - 1];
+      } else {
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j - 1] + 1, // substitution
+          Math.min(
+            matrix[i][j - 1] + 1, // insertion
+            matrix[i - 1][j] + 1
+          )
+        ); // deletion
+      }
+    }
+  }
+  return matrix[len1][len2];
+}
 // levenshtein("mist", "dist")
 // levenshtein("kitten", "sitting");
 
