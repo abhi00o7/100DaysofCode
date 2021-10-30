@@ -58,6 +58,7 @@ function mergeSort(array) {
         }
         // After looping ends, one array is empty, and other array contains only
         // values greater than all values in `merged`
+        
 
         return [...merged, ...array1, ...array2]
     }
